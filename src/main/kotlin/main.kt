@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
 
 data class MyParticipant(
     @JvmField var isHost: Boolean = false,
-    @JvmField var isCoHost: Boolean? = null
+    @JvmField var isCoHost: Boolean? = false
 )
 
 fun bindAsNotAnOwner(participant: MyParticipant) {
@@ -21,7 +21,7 @@ fun bindAsNotAnOwner(participant: MyParticipant) {
         participant.isHost -> {
             println("I'm a host")
         }
-        participant.isCoHost!! -> {
+        participant.isCoHost?:false -> {
             println("I'm a co-host")
         }
         else -> {
